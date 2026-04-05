@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giỏ hàng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="../src/assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <a href="menu.html" class="logo">
+      <i class="fas fa-exclamation-triangle"></i> Warring<span>.</span>
+    </a>
+    <nav class="navbar">
+      <a href="menu.html" class="active">Về Trang Chủ</a>
+    </nav>
+    <div class="icons">
+      <a href="login.html" class="fas fa-door-open"></a>
+      <span id="userInfo" style="margin-left:10px;font-weight:bold;"></span>
+    </div>
+  </header>
+
+  <section class="main-content">
+    <h1>Giỏ hàng của bạn</h1>
+    <p>Xem lại các khóa học trước khi thanh toán.</p>
+  </section>
+
+  <section class="cart">
+    <form action="">
+      <table>
+        <thead>
+          <tr>
+            <th>Sản phẩm</th>
+            <th>Giá</th>
+            <th>Chọn</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="price-total">
+        <p>Tổng tiền: <span>0</span><sup>đ</sup></p>
+        <button type="button" id="btn-pay" class="btn-pay">Thanh Toán</button>
+      </div>
+    </form>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      if(loggedInUser && loggedInUser.username) {
+        document.getElementById("userInfo").textContent = loggedInUser.username;
+      }
+    });
+  </script>
+  <script src="../src/js/cart.js"></script>
+</body>
+</html>
