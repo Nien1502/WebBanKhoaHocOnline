@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danh mục khóa học</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="../src/assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <a href="menu.html" class="logo">
+      <i class="fas fa-exclamation-triangle"></i> Warring<span>.</span>
+    </a>
+    <nav class="navbar">
+      <a href="menu.html" class="active">Về Trang Chủ</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">Danh mục</a>
+        <div class="dropdown-content" id="categoryDropdownList">
+          <a href="category.html?categoryId=1&name=To%C3%A1n%20h%E1%BB%8Dc">Toán học</a>
+          <a href="category.html?categoryId=2&name=Anh%20v%C4%83n">Anh văn</a>
+          <a href="category.html?categoryId=3&name=Ng%E1%BB%AF%20v%C4%83n">Ngữ văn</a>
+        </div>
+      </div>
+    </nav>
+    <div class="icons">
+      <i class="fas fa-search" id="search-icon"></i>
+      <a href="cart.html" class="fas fa-shopping-cart"></a>
+      <a href="login.html" class="fas fa-door-open"></a>
+      <span id="userInfo" style="margin-left:10px;font-weight:bold;"></span>
+    </div>
+  </header>
+
+  <div id="search-form">
+    <input type="search" id="search-box" placeholder="Tìm kiếm..." />
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+  </div>
+
+  <section class="main-content">
+    <h1 id="categoryTitle">Danh mục khóa học</h1>
+    <p id="categoryDescription">Danh sách khóa học theo danh mục đã chọn.</p>
+  </section>
+
+  <section class="product">
+    <div class="container" id="coursesContainer"></div>
+  </section>
+
+  <script src="../src/js/script.js"></script>
+  <script src="../src/js/category.js"></script>
+  <script src="../src/js/cart.js"></script>
+</body>
+</html>
