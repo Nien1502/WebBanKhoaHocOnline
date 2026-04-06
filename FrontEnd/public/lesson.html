@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bài học khóa học</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="../src/assets/css/style.css">
+        <link rel="stylesheet" href="../src/assets/css/lesson.css">
+    </head>
+
+    <body class="lesson-page">
+        <header>
+            <a href="menu.html" class="logo">
+              <i class="fas fa-exclamation-triangle"></i> Warring.
+            </a>
+            <nav class="navbar">
+                <a class="active" href="course.html">Khóa học</a>
+            </nav>
+            <div class="icons">
+                <i class="fas fa-bars" id="menu-bars"></i>
+                <a href="login.html" class="fas fa-door-open"></a>
+                <span id="userInfo" style="margin-left:10px;font-weight:bold;"></span>
+            </div>
+        </header>
+
+        <section class="lesson-section">
+            <div class="lesson-head">
+                <h1 id="courseTitle" class="lesson-title">Bài học của khóa học</h1>
+                <a class="back-link" href="course.html">Quay lại khóa học đã mua</a>
+            </div>
+            <p id="lessonSummary" class="lesson-summary">Đang tải danh sách bài học...</p>
+
+            <div class="lesson-layout">
+                <section class="lesson-player-panel" aria-live="polite">
+                    <div class="lesson-player-wrap">
+                        <video id="mainPlayer" class="main-player" controls preload="metadata"></video>
+                        <div id="playerEmpty" class="player-empty">Bài học này chưa có video.</div>
+                    </div>
+                    <h2 id="playerTitle" class="player-title">Đang tải bài học...</h2>
+                    <p id="playerMeta" class="player-meta">Vui lòng chờ trong giây lát.</p>
+                </section>
+
+                <aside class="lesson-playlist-panel">
+                    <h3 class="playlist-title">Danh sách bài học</h3>
+                    <div id="lessonList" class="lesson-list" aria-live="polite">
+                        <div class="lesson-item loading">Đang tải dữ liệu...</div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <script src="../src/js/lesson.js"></script>
+    </body>
+</html>
