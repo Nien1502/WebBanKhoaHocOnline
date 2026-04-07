@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng Ký</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  
+  <!-- CSS dùng chung -->
+  <link rel="stylesheet" href="../src/assets/css/register.css" />
+</head>
+<body>
+
+  <header>
+    <a class="logo">
+      <i class="fas fa-exclamation-triangle"></i> Warring<span>.</span>
+    </a>
+  </header>
+
+  <section class="form-container">
+    <h1>Đăng Ký</h1>
+    <!-- Thêm action="#" để tránh gửi form theo mặc định -->
+    <form id="registerForm" method="POST" action="#">
+      <div class="input-container">
+        <input type="text" placeholder="Tên người dùng" id="username" name="username" required />
+      </div>
+      <div class="input-container">
+        <input type="email" placeholder="Email" id="email" name="email" required />
+      </div>
+      <div class="input-container">
+        <input type="password" placeholder="Mật khẩu" id="password" name="password" required />
+      </div>
+      <div class="input-container">
+        <input type="password" placeholder="Xác nhận mật khẩu" id="confirmPassword" name="confirm_password" required />
+      </div>
+      <button type="submit" class="btn">Đăng Ký</button>
+      <p class="login-link">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+    </form>
+  </section>
+
+  <script src="../src/js/register.js"></script>
+</body>
+</html>

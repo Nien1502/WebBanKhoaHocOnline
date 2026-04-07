@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/assets/css/admin.css">
+    <link rel="stylesheet" href="../src/assets/css/toast-message.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../src/assets/css/admin-responsive.css">
+    <title>Quản lý cửa hàng</title>
+</head>
+
+<body>
+    <header class="header">
+        <button class="menu-icon-btn">
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </button>
+    </header>
+    <div class="container">
+        <aside class="sidebar open">
+            <div class="top-sidebar">
+                <a href="#" class="channel-logo"><i class="fas fa-exclamation-triangle"></i></i>Warring.</a>
+            </div>
+            <div class="middle-sidebar">
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item tab-content active">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-house"></i></i></div>
+                            <div class="hidden-sidebar">Trang tổng quan</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-laptop-file"></i></div>
+                            <div class="hidden-sidebar">Sản phẩm</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-users"></i></i></div>
+                            <div class="hidden-sidebar">Học Viên</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+                            <div class="hidden-sidebar">Đơn hàng</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item tab-content">
+                        <a href="#" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                            <div class="hidden-sidebar">Thống kê</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-sidebar">
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item user-logout">
+                        <a href="/" class="sidebar-link">
+                            <div class="sidebar-icon"><i class="fa-solid fa-circle-chevron-left"></i></div>
+                            <div class="hidden-sidebar">Trang chủ</div>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item user-logout">
+                        <a href="#" class="sidebar-link" id="logout-acc">
+                            <div class="sidebar-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
+                            <div class="hidden-sidebar">Đăng xuất</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div class="section active">
+                <h1 class="page-title">Trang tổng quát của Web Khóa học Online WARRING</h1>
+                <div class="cards">
+                    <div class="card-single">
+                        <div class="box">
+                            <div class="on-box">
+                                <img src="../src/assets/img/admin/s1.png" alt="" style=" width: 200px;">
+                                <h2 id="amount-user">0</h2>
+                                <h3>Học Viên</h3>
+                                <p>Sản phẩm là bất cứ cái gì có thể đưa vào thị trường để tạo sự chú ý, mua sắm, sử dụng
+                                    hay tiêu dùng nhằm thỏa mãn một nhu cầu hay ước muốn. Nó có thể là những vật thể,
+                                    dịch vụ, con người, địa điểm, tổ chức hoặc một ý tưởng.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div class="box">
+                            <div class="on-box">
+                                <img src="../src/assets/img/admin/s2.png" alt="" style=" width: 200px;">
+                                <h2 id="amount-categorie">0</h2>
+                                <h3>Sản phẩm</h3>
+                                <p>Học viên mục tiêu là một nhóm đối tượng học viên trong phân khúc thị trường mục
+                                    tiêu mà doanh nghiệp bạn đang hướng tới. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div class="box">
+                            <h2 id="amount-money">0 VND</h2>
+                            <div class="on-box">
+                                <img src="../src/assets/img/admin/s3.png" alt="" style=" width: 200px;">
+                                <h3>Doanh thu</h3>
+                                <p>Doanh thu của doanh nghiệp là toàn bộ số tiền sẽ thu được do tiêu thụ sản phẩm, cung
+                                    cấp dịch vụ với sản lượng.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- categorie  -->
+            <div class="section categorie-all">
+                <div class="admin-control">
+                    <div class="admin-control-left">
+                        <label for="chon-mon-select"></label>
+                        <select id="chon-mon-select" name="chon-mon" onchange="filterCoursesByCategory()"></select>
+                    </div>
+                    <div class="admin-control-center">
+                        <form action="" class="form-search">
+                            <span class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <label for="chon-mon-input"></label>
+                            <input id="chon-mon-input" name="chon-mon" type="text" class="form-search-input"
+                                placeholder="Tìm kiếm tên khóa học..." oninput="filterCoursesByCategory()">
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <button class="btn-control-large" id="btn-cancel-categorie" onclick="cancelSearchCourses()"><i
+                                class="fa-solid fa-rotate-right"></i> Làm mới</button>
+                        <button class="btn-control-large" id="btn-add-categorie"><i class="fa-solid fa-plus"></i> Thêm môn học mới</button>
+                    </div>
+                </div>
+                <div id="show-categorie"></div>
+                <div class="page-nav">
+                    <ul class="page-nav-list">
+                    </ul>
+                </div>
+            </div>
+            <!-- Account  -->
+            <div class="section">
+                <div class="admin-control">
+                    <div class="admin-control-left">
+                        <select name="tinh-trang-user" id="tinh-trang-user" onchange="showUser()">
+                            <option value="2">Tất cả</option>
+                            <option value="1">Hoạt động</option>
+                            <option value="0">Bị khóa</option>
+                        </select>
+                    </div>
+                    <div class="admin-control-center">
+                        <form action="" class="form-search">
+                            <span class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input id="form-search-user" type="text" class="form-search-input"
+                                placeholder="Tìm kiếm học viên..." oninput="showUser()">
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <form action="" class="fillter-date">
+                            <div>
+                                <label for="time-start">Từ</label>
+                                <input type="date" class="form-control-date" id="time-start-user" onchange="showUser()">
+                            </div>
+                            <div>
+                                <label for="time-end">Đến</label>
+                                <input type="date" class="form-control-date" id="time-end-user" onchange="showUser()">
+                            </div>
+                        </form>
+                        <button class="btn-reset-order" onclick="cancelSearchUser()"><i
+                                class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>STT</td>
+                                <td>Họ và tên</td>
+                                <td>Liên hệ</td>
+                                <td>Ngày tham gia</td>
+                                <td>Tình trạng</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody id="show-user">
+                        </tbody>
+                    </table>
+                </div>
+                <!-- </div> -->
+            </div>
+            <!-- Order  -->
+            <div class="section">
+                <div class="admin-control">
+                    <div class="admin-control-left">
+                        <select name="tinh-trang" id="tinh-trang" onchange="findOrder()">
+                            <option value="ALL">Tất cả</option>
+                            <option value="SUCCESS">Đã xử lý</option>
+                            <option value="PENDING">Chưa xử lý</option>
+                            <option value="FAILED">Thanh toán thất bại</option>
+                        </select>
+                    </div>
+                    <div class="admin-control-center">
+                        <form action="" class="form-search">
+                            <span class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input id="form-search-order" type="text" class="form-search-input"
+                                placeholder="Tìm kiếm mã đơn, học viên.." oninput="findOrder()">
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <form action="" class="fillter-date">
+                            <div>
+                                <label for="time-start">Từ</label>
+                                <input type="date" class="form-control-date" id="time-start" onchange="findOrder()">
+                            </div>
+                            <div>
+                                <label for="time-end">Đến</label>
+                                <input type="date" class="form-control-date" id="time-end" onchange="findOrder()">
+                            </div>
+                        </form>
+                        <button class="btn-reset-order" onclick="cancelSearchOrder()"><i
+                                class="fa-solid fa-rotate-right"></i></button>
+                    </div>
+                </div>
+                <div class="table">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>Mã đơn</td>
+                                <td>Học Viên</td>
+                                <td>Ngày đặt</td>
+                                <td>Tổng tiền</td>
+                                <td>Trạng thái</td>
+                                <td>Thao tác</td>
+                            </tr>
+                        </thead>
+                        <tbody id="showOrder">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="section">
+                <div class="admin-control">
+                    <div class="admin-control-left">
+                        <select name="chon-mon" id="chon-mon-thong-ke" onchange="thongKe()">
+                            <!--Lấy danh sách từ API-->
+                        </select>
+                    </div>
+                    <div class="admin-control-center">
+                        <form action="" class="form-search">
+                            <span class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input id="form-search-tk" type="text" class="form-search-input"
+                                placeholder="Tìm kiếm tên khóa học..." oninput="thongKe()">
+                        </form>
+                    </div>
+                    <div class="admin-control-right">
+                        <button class="btn-reset-order" onclick="thongKe(1)"><i
+                                class="fa-solid fa-arrow-up-short-wide"></i></i></button>
+                        <button class="btn-reset-order" onclick="thongKe(2)"><i
+                                class="fa-solid fa-arrow-down-wide-short"></i></button>
+                        <button class="btn-reset-order" onclick="thongKe(0)"><i
+                                class="fa-solid fa-rotate-right"></i></button>
+                    </div>
+                </div>
+                <div class="order-statistical" id="order-statistical">
+                    <div class="order-statistical-item">
+                        <div class="order-statistical-item-content">
+                            <p class="order-statistical-item-content-desc">Sản phẩm được bán ra</p>
+                            <h4 class="order-statistical-item-content-h" id="quantity-categorie"></h4>
+                        </div>
+                        <div class="order-statistical-item-icon">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                    </div>
+                    <div class="order-statistical-item">
+                        <div class="order-statistical-item-content">
+                            <p class="order-statistical-item-content-desc">Số lượng bán ra</p>
+                            <h4 class="order-statistical-item-content-h" id="quantity-order"></h4>
+                        </div>
+                        <div class="order-statistical-item-icon">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+                    </div>
+                    <div class="order-statistical-item">
+                        <div class="order-statistical-item-content">
+                            <p class="order-statistical-item-content-desc">Số lượng học viên</p>
+                            <h4 class="order-statistical-item-content-h" id="quantity-user"></h4>
+                        </div>
+                        <div class="order-statistical-item-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+                    <div class="table">
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <td>STT</td>
+                                    <td>Tên Khoá</td>
+                                    <td>Số lượng bán</td>
+                                    <td>Số lượng học viên</td>
+                                </tr>
+                            </thead>
+                            <tbody id="showTk">
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </main>
+    </div>
+    <div class="modal add-categorie">
+        <div class="modal-container">
+            <h3 class="modal-container-title add-categorie-e">THÊM MỚI KHÓA HỌC</h3>
+            <h3 class="modal-container-title edit-categorie-e">CHỈNH SỬA KHÓA HỌC</h3>
+            <button class="modal-close categorie-form"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-content">
+                <form action="" class="add-categorie-form">
+                    <div class="modal-content-left">
+                        <img src="../src/assets/img/blank-image.png" alt="" class="upload-image-preview">
+                        <div class="form-group file">
+                            <label for="up-hinh-anh" class="form-label-file"><i
+                                    class="fa-solid fa-cloud-arrow-up"></i>Chọn hình ảnh</label>
+                            <input accept="image/jpeg, image/png, image/jpg" id="up-hinh-anh" name="up-hinh-anh"
+                                type="file" class="form-control" onchange="uploadImage(this)">
+                        </div>
+                    </div>
+                    <div class="modal-content-right">
+                        <div class="form-group">
+                            <label for="ten-khoa-hoc" class="form-label">Tên khóa học</label>
+                            <input id="ten-khoa-hoc" name="ten-khoa-hoc" type="text" placeholder="Nhập tên khóa học"
+                                class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="category" class="form-label">Chọn môn học</label>
+                            <select name="category" id="chon-mon-them-moi" onchange="showcategorieaddedit()">
+                                <!-- Lấy danh sách từ API -->
+                            </select>
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="gia-moi" class="form-label">Giá bán</label>
+                            <input id="gia-moi" name="gia-moi" type="text" placeholder="Nhập giá bán"
+                                class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lesson-title" class="form-label">Ten bai hoc</label>
+                            <input id="lesson-title" name="lesson-title" type="text" placeholder="Nhap ten bai hoc"
+                                class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lesson-video-file" class="form-label">Tep video</label>
+                            <input id="lesson-video-file" name="lesson-video-file" type="file" accept="video/*"
+                                class="form-control">
+                            <small id="lesson-video-name">Chua chon tep video.</small>
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lesson-duration" class="form-label">Thoi luong (giay)</label>
+                            <input id="lesson-duration" name="lesson-duration" type="number" class="form-control" readonly>
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="form-submit" id="btn-add-lesson-row">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Them bai hoc</span>
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Danh sach bai hoc hien co</label>
+                            <div id="lesson-list" class="table"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mo-ta" class="form-label">Mô tả</label>
+                            <textarea class="categorie-desc" id="mo-ta" placeholder="Nhập mô tả môn học..."></textarea>
+                            <span class="form-message"></span>
+                        </div>
+                        <button class="form-submit btn-add-categorie-form add-categorie-e" id="add-categorie-button">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>THÊM KHÓA HỌC</span>
+                        </button>
+                        <button class="form-submit btn-update-categorie-form edit-categorie-e" id="update-categorie-button">
+                            <i class="fa-solid fa-pencil"></i>
+                            <span>LƯU THAY ĐỔI</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal detail-order">
+        <div class="modal-container">
+            <h3 class="modal-container-title">CHI TIẾT ĐƠN HÀNG</h3>
+            <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-detail-order">
+            </div>
+            <div class="modal-detail-bottom">
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal detail-order-categorie">
+        <div class="modal-container">
+            <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="table">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>Mã đơn</td>
+                            <td>Số lượng</td>
+                            <td>Đơn giá</td>
+                            <td>Ngày đặt</td>
+                        </tr>
+                    </thead>
+                    <tbody id="show-categorie-order-detail">
+                    </tbody>
+                </table>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal signup">
+        <div class="modal-container">
+            <h3 class="modal-container-title edit-account-e">CHỈNH SỬA THÔNG TIN</h3>
+            <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="form-content sign-up">
+                <form action="" class="signup-form">
+                    <div class="form-group">
+                        <label for="fullname" class="form-label">Tên đầy đủ</label>
+                        <input id="fullname" name="fullname" type="text" placeholder="VD: Nhật Sinh"
+                            class="form-control">
+                        <span class="form-message-name form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input id="email" name="email" type="text" placeholder="Nhập email"
+                            class="form-control">
+                        <span class="form-message-email form-message"></span>
+                    </div>
+                    <div class="form-group edit-account-e">
+                        <label for="" class="form-label">Trạng thái</label>
+                        <input type="checkbox" id="user-status" class="switch-input">
+                        <label for="user-status" class="switch"></label>
+                    </div>
+                    <button class="form-submit add-account-e" id="signup-button">Đăng ký</button>
+                    <button class="form-submit edit-account-e" id="btn-update-account"><i
+                            class="fa-solid fa-floppy-disk"></i> Lưu thông tin</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="toast"></div>
+    <script src="../src/js/admin.js"></script>
+    <script src="../src/js/toast-message.js"></script>
+</body>
+
+</html>

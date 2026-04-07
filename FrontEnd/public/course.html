@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Course - Menu</title>
+
+        <!-- Swiper starts -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <!-- Swiper ends-->
+
+        <!-- font link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <!-- css link -->
+        <link rel="stylesheet" href="../src/assets/css/style.css">
+        <link rel="stylesheet" href="../src/assets/css/course.css">
+    </head>
+
+    <body class="course-page">
+        <!-- header start -->
+        <header>
+            <a href="menu.html" class="logo">
+              <i class="fas fa-exclamation-triangle"></i> Warring.
+            </a>
+            <nav class="navbar">
+                <a class="active" href="menu.html">Trang chủ</a>
+            </nav>
+            <!-- icons -->
+            <div class="icons">
+                <i class="fas fa-bars" id="menu-bars"></i>
+                <a href="login.html" class="fas fa-door-open"></a>
+                <span id="userInfo" style="margin-left:10px;font-weight:bold;"></span>
+            </div>
+        </header>
+
+        <section class="course-list-section">
+            <h1 class="course-list-title">Khóa học đã mua</h1>
+            <p class="course-list-note">Theo dõi thời lượng từng video và phần trăm hoàn thành của từng khóa học.</p>
+            <p id="courseCount" class="course-count">Đang tính tiến độ học...</p>
+            <div id="purchasedCourseList" class="purchased-course-list" aria-live="polite">
+                <div class="course-item loading">Đang tải dữ liệu...</div>
+            </div>
+        </section>
+
+        <script src="../src/js/course.js"></script>
+    </body>
+</html>

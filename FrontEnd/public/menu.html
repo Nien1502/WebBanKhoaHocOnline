@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>main menu</title>
+
+        <!-- Swiper starts -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <!-- Swiper ends-->
+
+        <!-- font link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <!-- css link -->
+        <link rel="stylesheet" href="../src/assets/css/style.css">
+    </head>
+
+    <body class="menu-layout">
+        <div class="menu-shell">
+            <aside class="menu-sidebar">
+                <a href="menu.html" class="menu-side-logo">
+                    <i class="fa-solid fa-book-open"></i>
+                </a>
+                <a class="menu-side-item active" href="menu.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Trang chủ</span>
+                </a>
+                <a class="menu-side-item" href="#Huongdanmuahang">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Hướng dẫn</span>
+                </a>
+                <div class="menu-category-dropdown" id="menu-category-dropdown">
+                    <button type="button" class="menu-side-item menu-category-trigger">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Danh mục</span>
+                    </button>
+                    <div class="menu-category-panel" id="menu-category-panel">
+                        <div class="menu-category-title">Danh mục khóa học</div>
+                        <div class="menu-category-list" id="menu-category-list">
+                            <a href="#" class="menu-category-item">Đang tải danh mục...</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="menu-side-item" href="#" id="open-course-link">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Khóa học</span>
+                </a>
+                <a class="menu-side-item" href="#Lienhe">
+                    <i class="fa-solid fa-headset"></i>
+                    <span>Liên hệ</span>
+                </a>
+                <a class="menu-side-item" href="cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Giỏ hàng</span>
+                </a>
+            </aside>
+
+            <div class="menu-content-area">
+                <header>
+                    <a href="menu.html" class="logo">
+                      <i class="fa-solid fa-triangle-exclamation"></i> Warring.
+                    </a>
+                    <nav class="navbar">
+                        <div class="menu-search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="search" id="menu-search-input" placeholder="Tìm kiếm khóa học, bài viết, video..." autocomplete="off">
+                            <button type="button" class="clear-search" aria-label="Xóa tìm kiếm">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                    </nav>
+                    <div class="icons">
+                        <i class="fa-solid fa-bars" id="menu-bars"></i>
+                        <a href="login.html" class="fa-solid fa-door-open"></a>
+                        <span id="userInfo" style="margin-left:10px;font-weight:bold;"></span>
+                    </div>
+                </header>
+
+                <section id="continue-learning" class="continue-learning" aria-live="polite"></section>
+
+                <section class="menu-course-strip" aria-label="Danh mục khóa học">
+                    <button type="button" class="menu-strip-nav prev" aria-label="Xem danh mục trước">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="menu-course-strip-track" id="menu-course-strip-track">
+                        <a href="#" class="menu-course-card">
+                            <i class="fa-solid fa-spinner fa-spin"></i>
+                            <h3>Đang tải danh mục</h3>
+                            <p>Vui lòng chờ trong giây lát...</p>
+                        </a>
+                    </div>
+                    <button type="button" class="menu-strip-nav next" aria-label="Xem danh mục tiếp theo">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </section>
+
+                <!-- home section starts -->
+                <section class="Trangchu" id="Trangchu">
+                    <div class="swiper-container home-slider">
+                        <div class="swiper-wrapper wrapper">
+                            <!-- slide 1 -->
+                            <div class="swiper-slide slide">
+                                <div class="content">
+                                    <span>Khóa học nổi bật</span>
+                                    <h3>Luyện thi IELTS</h3>
+                                    <p>Chinh Phục IELTS: Lộ Trình Hiệu Quả Để Đạt Band Điểm Mơ Ước!</p>
+                                    <a href="category.html?categoryId=2&name=Anh%20v%C4%83n" class="btn">Xem ngay</a>
+                                </div>
+                                <div class="image">
+                                    <img src="../src/assets/img/IELTS.png" alt="">
+                                </div>
+                            </div>
+                            <!-- slide 2 -->
+                            <div class="swiper-slide slide">
+                                <div class="content">
+                                    <span>Khóa học nổi bật</span>
+                                    <h3>Viết văn sáng tạo</h3>
+                                    <p>Học Ngữ Văn: Hiểu Ý - Diễn Đạt - Ghi Điểm!</p>
+                                    <a href="category.html?categoryId=3&name=Ng%E1%BB%AF%20v%C4%83n" class="btn">Xem ngay</a>
+                                </div>
+                                <div class="image">
+                                    <img src="../src/assets/img/Van-sang-tao.png" alt="">
+                                </div>
+                            </div>
+                            <!-- slide 3 -->
+                            <div class="swiper-slide slide">
+                                <div class="content">
+                                    <span>Khóa học nổi bật</span>
+                                    <h3>Toán nâng cao</h3>
+                                    <p>Học Toán: Tư Duy Sáng Tạo - Giải Bài Hiệu Quả!</p>
+                                    <a href="category.html?categoryId=1&name=To%C3%A1n%20h%E1%BB%8Dc" class="btn">Xem ngay</a>
+                                </div>
+                                <div class="image">
+                                    <img src="../src/assets/img/Toan-nang-cao.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev home-slider-prev" aria-label="Slide trước"></div>
+                        <div class="swiper-button-next home-slider-next" aria-label="Slide tiếp"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </section>
+                <!-- home section ends -->
+
+                <!-- Hướng dẫn mua hàng starts -->
+                <section class="Huongdanmuahang" id="Huongdanmuahang">
+                    <h3 class="sub-heading">Cách thức mua hàng tại Warring.</h3>
+                    <h1 class="heading">Hướng dẫn mua hàng</h1>
+                    <div class="steps">
+                        <!-- Bước 1 -->
+                        <div class="step">
+                            <img src="../src/assets/img/step1.png" alt="Chọn khóa học">
+                            <p>Duyệt danh sách các khóa học, lựa chọn khóa phù hợp với nhu cầu và thêm vào giỏ hàng. Mỗi khóa học đều có thông tin chi tiết, giá cả và đánh giá để hỗ trợ đưa ra quyết định dễ dàng hơn.</p>
+                        </div>
+                        <!-- Bước 2 -->
+                        <div class="step">
+                            <img src="../src/assets/img/step2.png" alt="Xác nhận đơn hàng">
+                            <p>Sau khi xác nhận thanh toán, hệ thống sẽ gửi yêu cầu đến admin. Trong vòng vài phút, admin sẽ xử lý đơn hàng và kích hoạt khóa học để bạn có thể bắt đầu học ngay.</p>
+                        </div>
+                        <!-- Bước 3 -->
+                        <div class="step">
+                            <img src="../src/assets/img/step3.png" alt="Truy cập khóa học">
+                            <p>Ngay khi khóa học được kích hoạt, bạn chỉ cần đăng nhập vào hệ thống để truy cập nội dung và học theo lộ trình đã thiết kế.</p>
+                        </div>
+                    </div>
+                </section>
+                <!-- Hướng dẫn mua hàng ends -->
+
+                <!-- Footer section starts -->
+                 <section class="Lienhe" id="Lienhe">
+                    <div class="box-container">
+                        <div class="box">
+                            <h3>Quick links</h3>
+                            <a href="#">Danh mục</a>
+                            <a href="#Huongdanmuahang">Hướng dẫn mua hàng</a>
+                            <a href="#Trangchu">Khóa học nổi bật</a>
+                            <a href="#Lienhe">Liên hệ</a>
+                        </div>
+                        <div class="box">
+                            <h3>Thông tin liên hệ</h3>
+                            <a href="#">(+84) 355 768 900</a>
+                            <a href="#">(+84) 355 768 900</a>
+                            <a href="#">warringteam01@gmail.com</a>
+                            <a href="#">warringteam02@gmail.com</a>
+                        </div>
+                        <div class="box">
+                            <h3>Theo dõi thêm tại</h3>
+                            <a href="#">facebook</a>
+                            <a href="#">instagram</a>
+                            <a href="#">twitter</a>
+                            <a href="#">tiktok</a>
+                        </div>
+                    </div>
+                    <div class="credit">copyright @ 2025 by <span>warring team</span></div>
+                </section>
+                 <!-- Footer section ends -->
+            </div>
+        </div>
+
+        <!-- link js -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="../src/js/script.js"></script>
+    </body>
+</html>

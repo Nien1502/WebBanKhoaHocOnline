@@ -1,0 +1,1181 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+:root {
+    --cyan: #4757bf;
+    --black: #070e1e;
+    --light-color: #666;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 2rem 9%;
+}
+
+section:nth-child(even) {
+    background: #eee;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #fff;
+    padding: 1rem 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+header .logo {
+    color: var(--cyan);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+header .navbar a {
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color: var(--light-color);
+    margin-left: .5rem;
+}
+
+header .navbar a.active,
+header .navbar a:hover {
+    background: var(--cyan);
+    color: #fff;
+}
+
+/* Dropdown menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropbtn {
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color: var(--light-color);
+    background: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 20rem;
+    box-shadow: var(--box-shadow);
+    z-index: 1001;
+    border-radius: .5rem;
+}
+
+.dropdown-content a {
+    color: var(--light-color);
+    padding: 1rem 1.5rem;
+    display: block;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--cyan);
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background: var(--cyan);
+    color: #fff;
+}
+
+/* Icons */
+header .icons i,
+header .icons a {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color: var(--black);
+    border-radius: 50%;
+    background: #eee;
+}
+
+header .icons i:hover,
+header .icons a:hover {
+    color: #fff;
+    background: var(--cyan);
+    transform: rotate(30deg);
+}
+
+header .icons #menu-bars {
+    display: none;
+}
+
+/* Search form */
+#search-form {
+    position: fixed;
+    top: -110%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1004;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+#search-form.active {
+    top: 0;
+}
+
+#search-form #search-box {
+    width: 50rem;
+    border-bottom: 0.1rem solid #fff;
+    padding: 1rem 0;
+    color: #eee;
+    font-size: 3rem;
+    text-transform: none;
+    background: none;
+}
+
+#search-form label {
+    color: #fff;
+    cursor: pointer;
+    font-size: 3rem;
+}
+
+#search-form label:hover {
+    color: var(--cyan);
+}
+
+#search-form #close {
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    top: 2rem;
+    right: 3rem;
+    font-size: 5rem;
+}
+
+/* Home slider */
+.Trangchu .home-slider .slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+    height: 100vh;
+}
+
+.Trangchu .home-slider .slide .content {
+    flex: 1 1 45rem;
+}
+
+.Trangchu .home-slider .slide .image {
+    flex: 1 1 45rem;
+}
+
+.Trangchu .home-slider .slide .image img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.Trangchu .home-slider .slide .content span {
+    color: var(--cyan);
+    font-size: 2.5rem;
+}
+
+.Trangchu .home-slider .slide .content h3 {
+    color: var(--black);
+    font-size: 5rem;
+}
+
+.Trangchu .home-slider .slide .content p {
+    color: var(--light-color);
+    font-size: 2.2rem;
+    padding: .5rem 0;
+    line-height: 1.5;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--cyan);
+}
+
+/* Button "Mua ngay" */
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--black);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+}
+
+.btn:hover {
+    background: var(--cyan);
+    letter-spacing: .1rem;
+}
+
+/* Hướng dẫn mua hàng */
+.Huongdanmuahang {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.Huongdanmuahang .sub-heading {
+    font-size: 2rem;
+    color: var(--light-color);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.Huongdanmuahang .heading {
+    font-size: 2rem;
+    color: var(--cyan);
+    margin-bottom: 2rem;
+}
+
+.Huongdanmuahang .steps {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.Huongdanmuahang .step {
+    flex: 1;
+    text-align: center;
+}
+
+.Huongdanmuahang .step img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.Huongdanmuahang .step p {
+    font-size: 1.4rem;
+    color: var(--light-color);
+    line-height: 1.8;
+    text-align: justify;
+    padding: 0 1rem;
+}
+
+/* Footer */
+.Lienhe .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.Lienhe .box-container .box h3 {
+    padding: .5rem 0;
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+.Lienhe .box-container .box a {
+    display: block;
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.Lienhe .box-container .box a:hover {
+    color: var(--cyan);
+    text-decoration: underline;
+}
+
+.Lienhe .credit {
+    text-align: center;
+    border-top: .1rem solid rgba(0,0,0,.1);
+    font-size: 2rem;
+    color: var(--black);
+    padding: .5rem;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.Lienhe .credit span {
+    color: var(--cyan);
+}
+
+/* Trang khóa học */
+.main-content {
+    padding-top: 8rem;
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.main-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--black);
+}
+
+.main-content p {
+    font-size: 1.6rem;
+    color: var(--light-color);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* KhoaHoc */
+.product {
+    padding: 4rem 2rem;
+    margin-top: 80px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.product-item {
+    width: 30%;
+    background-color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-item h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--black);
+    margin-top: 10px;
+}
+
+.product-item p {
+    font-size: 1.4rem;
+    color: var(--light-color);
+}
+
+.product-item button {
+    font-size: 1.6rem;
+    color: white;
+    background-color: var(--cyan);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.product-item button:hover {
+    background-color: var(--black);
+}
+
+.cart table {
+    width: 100%;
+    border-collapse: collapse; /* Làm cho các dòng không bị tách biệt */
+}
+
+.cart th, .cart td {
+    padding: 15px; /* Thêm khoảng cách giữa các ô */
+    text-align: left; /* Căn chỉnh văn bản bên trái */
+    border-bottom: 1px solid #ddd; /* Thêm kẻ ngăn giữa các sản phẩm */
+}
+
+.cart th {
+    background-color: #f4f4f4; /* Thêm nền cho tiêu đề cột */
+    font-weight: bold; /* Làm đậm tiêu đề */
+    font-size: 1.6rem; /* Đồng bộ kích thước chữ với các phần khác */
+}
+
+.cart td img {
+    width: 70px; /* Điều chỉnh kích thước ảnh sản phẩm */
+    margin-right: 15px; /* Thêm khoảng cách giữa ảnh và tên sản phẩm */
+}
+
+.cart .price-total {
+    text-align: right;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.cart td {
+    vertical-align: middle; /* Căn chỉnh theo chiều dọc */
+}
+
+.cart .remove-btn {
+    color: red;
+    cursor: pointer;
+    font-size: 1.6rem; /* Đồng bộ kích thước chữ với các phần khác */
+}
+
+.cart .remove-btn:hover {
+    text-decoration: underline;
+}
+
+/* Nút Thanh toán */
+.price-total {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.price-total .btn-pay {
+    font-size: 1.6rem;  
+    color: white;
+    background-color: var(--cyan);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 2rem;  
+    transition: background-color .3s;
+}
+
+.price-total .btn-pay:hover {
+    background-color: var(--black);
+}
+
+.price-total p {
+    font-size: 1.6rem; /* Đồng bộ kích thước chữ tổng tiền */
+}
+
+/* ===== Menu page layout (keep original color theme) ===== */
+body.menu-layout {
+    background: #f4f6fb;
+}
+
+.menu-layout .menu-shell {
+    min-height: 100vh;
+    display: flex;
+    gap: 2rem;
+    padding: 1.6rem;
+}
+
+.menu-layout .menu-sidebar {
+    width: 8.8rem;
+    position: sticky;
+    top: 1.6rem;
+    z-index: 1300;
+    height: calc(100vh - 3.2rem);
+    background: #fff;
+    border-radius: 1.8rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 0.8rem;
+}
+
+.menu-layout .menu-side-logo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1.2rem;
+    background: var(--cyan);
+    color: #fff;
+    font-size: 2rem;
+    display: grid;
+    place-items: center;
+}
+
+.menu-layout .menu-side-item {
+    width: 100%;
+    border-radius: 1.2rem;
+    color: var(--light-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 0.5rem;
+}
+
+.menu-layout .menu-side-item i {
+    width: 3.1rem;
+    height: 3.1rem;
+    border-radius: 50%;
+    background: #eef0f6;
+    color: var(--black);
+    display: grid;
+    place-items: center;
+    font-size: 1.4rem;
+}
+
+.menu-layout .menu-side-item span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.menu-layout .menu-side-item:hover,
+.menu-layout .menu-side-item.active {
+    background: rgba(71, 87, 191, 0.12);
+    color: var(--black);
+}
+
+.menu-layout .menu-side-item:hover i,
+.menu-layout .menu-side-item.active i {
+    background: var(--cyan);
+    color: #fff;
+}
+
+.menu-layout .menu-content-area {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.menu-layout section {
+    padding: 0;
+}
+
+.menu-layout section:nth-child(even) {
+    background: transparent;
+}
+
+.menu-layout header {
+    position: sticky;
+    top: 1.6rem;
+    left: auto;
+    right: auto;
+    padding: 1.2rem 2rem;
+    border-radius: 1.6rem;
+}
+
+.menu-layout .navbar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.menu-layout .navbar a,
+.menu-layout .dropdown .dropbtn {
+    margin-left: 0;
+}
+
+.menu-layout .menu-search-box {
+    width: min(64rem, 100%);
+    background: #fff;
+    border: 0.2rem solid rgba(7, 14, 30, 0.25);
+    border-radius: 999px;
+    min-height: 4.6rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1.4rem;
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.06);
+}
+
+.menu-layout .menu-search-box:focus-within {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 0.35rem rgba(71, 87, 191, 0.15);
+}
+
+.menu-layout .menu-search-box > i {
+    font-size: 1.8rem;
+    color: var(--light-color);
+    margin-right: 1rem;
+}
+
+.menu-layout #menu-search-input {
+    flex: 1;
+    min-width: 0;
+    font-size: 2rem;
+    color: var(--black);
+    background: transparent;
+}
+
+.menu-layout #menu-search-input::placeholder {
+    color: #8f96a5;
+    font-size: 1.9rem;
+}
+
+.menu-layout .clear-search {
+    background: transparent;
+    color: #8f96a5;
+    cursor: pointer;
+    font-size: 1.8rem;
+    padding-left: 1rem;
+}
+
+.menu-layout .clear-search:hover {
+    color: var(--black);
+}
+
+.menu-layout .menu-category-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.menu-layout .menu-category-trigger {
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.menu-layout .menu-category-panel {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 1rem);
+    width: 28rem;
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: var(--box-shadow);
+    border: 0.1rem solid rgba(71, 87, 191, 0.2);
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all .18s ease;
+    z-index: 1400;
+}
+
+.menu-layout .menu-category-dropdown:hover .menu-category-panel,
+.menu-layout .menu-category-dropdown:focus-within .menu-category-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-layout .menu-category-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cyan);
+    margin-bottom: 0.8rem;
+    padding: 0.2rem 0.6rem;
+}
+
+.menu-layout .menu-category-list {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.menu-layout .menu-category-item {
+    border-radius: 0.8rem;
+    color: var(--black);
+    font-size: 1.45rem;
+    padding: 0.8rem 1rem;
+    display: block;
+}
+
+.menu-layout .menu-category-item:hover {
+    background: rgba(71, 87, 191, 0.1);
+    color: var(--cyan);
+}
+
+.menu-layout #search-form {
+    display: none;
+}
+
+.menu-layout .menu-course-strip {
+    margin-top: 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.menu-layout .menu-course-strip-track {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    gap: 1.6rem;
+    overflow-x: auto;
+    padding: 0.2rem 5.6rem;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.menu-layout .menu-course-strip-track::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-layout .menu-strip-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: var(--box-shadow);
+    color: var(--cyan);
+    border: 1px solid rgba(71, 87, 191, 0.25);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    z-index: 2;
+}
+
+.menu-layout .menu-strip-nav.prev {
+    left: 0.8rem;
+}
+
+.menu-layout .menu-strip-nav.next {
+    right: 0.8rem;
+}
+
+.menu-layout .menu-strip-nav i {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.menu-layout .menu-strip-nav:hover {
+    background: var(--cyan);
+    color: #fff;
+}
+
+.menu-layout .menu-course-card {
+    flex: 0 0 28rem;
+}
+
+@media (max-width: 768px) {
+    .menu-layout .menu-course-card {
+        flex-basis: 24rem;
+    }
+}
+
+.menu-layout .continue-learning {
+    margin-top: 2rem;
+}
+
+.menu-layout .continue-learning[hidden] {
+    display: none;
+}
+
+.menu-layout .continue-learning-card {
+    background: #fff;
+    border-radius: 1.6rem;
+    box-shadow: var(--box-shadow);
+    padding: 1.6rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+}
+
+.menu-layout .continue-learning-main {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    min-width: 0;
+}
+
+.menu-layout .continue-learning-progress {
+    --progress: 0;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: conic-gradient(var(--cyan) calc(var(--progress) * 1%), #eef0f6 0);
+    position: relative;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+}
+
+.menu-layout .continue-learning-progress::before {
+    content: "";
+    position: absolute;
+    inset: 0.9rem;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.menu-layout .continue-learning-progress span {
+    position: relative;
+    z-index: 1;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--black);
+}
+
+.menu-layout .continue-learning-text {
+    min-width: 0;
+}
+
+.menu-layout .continue-learning-course {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-layout .continue-learning-lesson {
+    font-size: 1.45rem;
+    color: var(--light-color);
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-layout .continue-learning-actions {
+    flex: 0 0 auto;
+}
+
+.menu-layout .continue-learning-actions .btn {
+    margin-top: 0;
+    white-space: nowrap;
+}
+
+.menu-layout .menu-course-card {
+    background: #fff;
+    border-top: 0.4rem solid var(--cyan);
+    border-radius: 1.2rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    color: var(--light-color);
+}
+
+.menu-layout .menu-course-card i {
+    font-size: 2.2rem;
+    color: var(--cyan);
+    margin-bottom: 1rem;
+}
+
+.menu-layout .menu-course-card h3 {
+    font-size: 2.2rem;
+    color: var(--black);
+    margin-bottom: 0.8rem;
+}
+
+.menu-layout .menu-course-card p {
+    font-size: 1.45rem;
+    line-height: 1.6;
+}
+
+.menu-layout .Trangchu {
+    margin-top: 2rem;
+    background: #fff;
+    border-radius: 1.6rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.menu-layout .Trangchu .home-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.menu-layout .Trangchu .home-slider .slide {
+    width: 100%;
+    padding-top: 0;
+    min-height: 42rem;
+    height: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: 2.2rem;
+    padding-inline: 1rem;
+}
+
+.menu-layout .Trangchu .home-slider .slide .content,
+.menu-layout .Trangchu .home-slider .slide .image {
+    min-width: 0;
+}
+
+.menu-layout .Trangchu .home-slider .slide .image {
+    justify-self: end;
+}
+
+.menu-layout .Trangchu .home-slider .slide .image img {
+    width: 100%;
+    max-width: 48rem;
+    border-radius: 1.4rem;
+}
+
+.menu-layout .Trangchu .home-slider .slide .content span {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.menu-layout .Trangchu .home-slider .slide .content h3 {
+    font-size: 4.2rem;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.menu-layout .Trangchu .home-slider .slide .content p {
+    font-size: 1.9rem;
+    line-height: 1.6;
+}
+
+.menu-layout .Trangchu .home-slider .swiper-button-prev,
+.menu-layout .Trangchu .home-slider .swiper-button-next {
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: var(--box-shadow);
+    color: var(--cyan);
+    border: 1px solid rgba(71, 87, 191, 0.25);
+}
+
+.menu-layout .Trangchu .home-slider .swiper-button-prev::after,
+.menu-layout .Trangchu .home-slider .swiper-button-next::after {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.menu-layout .Trangchu .home-slider .swiper-button-prev:hover,
+.menu-layout .Trangchu .home-slider .swiper-button-next:hover {
+    background: var(--cyan);
+    color: #fff;
+}
+
+.menu-layout .Trangchu .home-slider .swiper-pagination {
+    bottom: 0.2rem;
+}
+
+.menu-layout .Trangchu .home-slider .swiper-pagination-bullet {
+    background: rgba(71, 87, 191, 0.4);
+    opacity: 1;
+}
+
+.menu-layout .Trangchu .home-slider .swiper-pagination-bullet-active {
+    background: var(--cyan);
+}
+
+.menu-layout .Huongdanmuahang {
+    margin-top: 2rem;
+    background: #fff;
+    border-radius: 1.6rem;
+    box-shadow: var(--box-shadow);
+    padding: 2.5rem 2rem;
+}
+
+.menu-layout .Huongdanmuahang .sub-heading {
+    font-size: 1.7rem;
+}
+
+.menu-layout .Huongdanmuahang .heading {
+    font-size: 3rem;
+}
+
+.menu-layout .Huongdanmuahang .step {
+    background: #fafbff;
+    border-radius: 1.2rem;
+    padding: 1.4rem 1.2rem 1.8rem;
+}
+
+.menu-layout .Lienhe {
+    margin-top: 2rem;
+    background: #fff;
+    border-radius: 1.6rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 1200px) {
+    .menu-layout .menu-course-card {
+        flex-basis: 26rem;
+    }
+
+    .menu-layout .Huongdanmuahang .steps {
+        flex-wrap: wrap;
+    }
+
+    .menu-layout .Huongdanmuahang .step {
+        min-width: 28rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .menu-layout .menu-shell {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .menu-layout .menu-sidebar {
+        width: 7rem;
+        padding: 1rem 0.4rem;
+    }
+
+    .menu-layout .menu-side-item span {
+        font-size: 1rem;
+    }
+
+    .menu-layout header {
+        top: 1rem;
+        padding: 1rem 1.4rem;
+    }
+
+    .menu-layout header .logo {
+        font-size: 2.1rem;
+    }
+
+    .menu-layout header .navbar a,
+    .menu-layout .dropdown .dropbtn {
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .menu-layout .menu-search-box {
+        min-height: 4.2rem;
+    }
+
+    .menu-layout #menu-search-input {
+        font-size: 1.6rem;
+    }
+
+    .menu-layout #menu-search-input::placeholder {
+        font-size: 1.6rem;
+    }
+
+    .menu-layout .icons i,
+    .menu-layout .icons a {
+        height: 3.8rem;
+        width: 3.8rem;
+        line-height: 3.8rem;
+        font-size: 1.4rem;
+    }
+
+    .menu-layout .menu-strip-nav {
+        width: 3.8rem;
+    }
+
+    .menu-layout .menu-course-card {
+        flex-basis: 22rem;
+    }
+
+    .menu-layout .Trangchu .home-slider .slide .content h3 {
+        font-size: 3.2rem;
+    }
+
+    .menu-layout .Trangchu .home-slider .slide .content p {
+        font-size: 1.6rem;
+    }
+
+    .menu-layout .Trangchu .home-slider .slide {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+
+    .menu-layout .Trangchu .home-slider .slide .image {
+        justify-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-layout .menu-sidebar {
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        top: auto;
+        width: auto;
+        height: auto;
+        border-radius: 1.4rem;
+        flex-direction: row;
+        justify-content: space-between;
+        z-index: 1001;
+    }
+
+    .menu-layout .menu-side-logo {
+        display: none;
+    }
+
+    .menu-layout .menu-side-item {
+        width: 19%;
+        padding: 0.8rem 0.4rem;
+    }
+
+    .menu-layout .menu-content-area {
+        padding-bottom: 8.6rem;
+    }
+
+    .menu-layout header .navbar {
+        display: flex;
+        width: 100%;
+    }
+
+    .menu-layout header {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .menu-layout .logo {
+        width: auto;
+    }
+
+    .menu-layout .menu-search-box {
+        width: 100%;
+        min-height: 4rem;
+    }
+
+    .menu-layout .menu-category-dropdown {
+        width: 19%;
+    }
+
+    .menu-layout .menu-category-trigger {
+        width: 100%;
+    }
+
+    .menu-layout .menu-category-panel {
+        left: 0;
+        right: auto;
+        top: auto;
+        bottom: calc(100% + 0.8rem);
+        width: 26rem;
+    }
+
+    .menu-layout #menu-search-input,
+    .menu-layout #menu-search-input::placeholder {
+        font-size: 1.45rem;
+    }
+
+    .menu-layout .Trangchu .home-slider .swiper-button-prev,
+    .menu-layout .Trangchu .home-slider .swiper-button-next {
+        display: none;
+    }
+}
