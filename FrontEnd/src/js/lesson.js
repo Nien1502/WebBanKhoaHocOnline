@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const API_ORIGIN = API_BASE.replace(/\/+$/, "");
 
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  const authToken = (localStorage.getItem("authToken") || "").trim();
+  const authTokenExpiresAt = Number(localStorage.getItem("authTokenExpiresAt") || 0);
   const userInfo = document.getElementById("userInfo");
   if (loggedInUser && loggedInUser.username && userInfo) {
     userInfo.textContent = loggedInUser.username;
@@ -13,6 +15,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!loggedInUser || !loggedInUser.id) {
     alert("Vui lòng đăng nhập để học khóa học.");
+    window.location.href = "login.html";
+    return;
+  }
+
+  if (!authToken) {
+    alert("Phiên đăng nhập không hợp lệ. Vui lòng đăng nhập lại.");
+    window.location.href = "login.html";
+    return;
+  }
+
+  if (authTokenExpiresAt > 0 && Date.now() >= authTokenExpiresAt) {
+    alert("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.");
     window.location.href = "login.html";
     return;
   }
@@ -140,32 +154,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function getLessonVideoUrl(lesson) {
-    const raw = String(lesson?.videoURL ?? lesson?.videourl ?? lesson?.VideoURL ?? "").trim();
-    if (!raw) {
+    const lessonId = getLessonId(lesson);
+    if (!lessonId) {
       return "";
     }
 
-    // Already a full URL.
-    if (/^https?:\/\//i.test(raw)) {
-      return raw;
-    }
-
-    // Stored as backend static path.
-    if (raw.startsWith("/assets/videos/")) {
-      return API_ORIGIN + raw;
-    }
-
-    if (raw.startsWith("assets/videos/")) {
-      return API_ORIGIN + "/" + raw;
-    }
-
-    // Stored as filename only (the current admin flow saves this format).
-    const fileName = raw.split(/[\\/]/).pop();
-    if (!fileName) {
+    if (!authToken) {
       return "";
     }
 
-    return API_ORIGIN + "/assets/videos/" + encodeURIComponent(fileName);
+    return apiUrl(`/api/lessons/${encodeURIComponent(lessonId)}/video?token=${encodeURIComponent(authToken)}`);
   }
 
   function getProgressLessonId(progressRow) {
@@ -442,6 +440,10 @@ document.addEventListener("DOMContentLoaded", function () {
   playerEl.addEventListener("ended", function () {
     persistCurrentLessonProgress(true);
     stopAutoSave();
+  });
+
+  playerEl.addEventListener("error", function () {
+    playerMetaEl.textContent = "Không thể tải video. Vui lòng đăng nhập lại hoặc kiểm tra quyền truy cập khóa học.";
   });
 
   window.addEventListener("beforeunload", function () {

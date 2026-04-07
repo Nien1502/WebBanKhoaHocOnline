@@ -192,4 +192,61 @@ public class LessonController {
         }
     }
 
+    private ResponseEntity<Map<String, Object>> unauthorized(String message) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorBody(message));
+    }
+
+    private ResponseEntity<Map<String, Object>> forbidden(String message) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorBody(message));
+    }
+
+    private Map<String, Object> errorBody(String message) {
+        LinkedHashMap<String, Object> body = new LinkedHashMap<>();
+        body.put("message", message);
+        body.put("success", false);
+        return body;
+    }
+
+    private String extractVideoFileName(String rawVideoUrl) {
+        if (rawVideoUrl == null || rawVideoUrl.isBlank()) {
+            return null;
+        }
+
+        String normalized = rawVideoUrl.trim();
+        int queryIndex = normalized.indexOf('?');
+        if (queryIndex >= 0) {
+            normalized = normalized.substring(0, queryIndex);
+        }
+
+        int hashIndex = normalized.indexOf('#');
+        if (hashIndex >= 0) {
+            normalized = normalized.substring(0, hashIndex);
+        }
+
+        normalized = normalized.replace('\\', '/');
+        int lastSlash = normalized.lastIndexOf('/');
+        String fileName = lastSlash >= 0 ? normalized.substring(lastSlash + 1).trim() : normalized.trim();
+        if (fileName.isEmpty()) {
+            return null;
+        }
+
+        try {
+            fileName = URLDecoder.decode(fileName, StandardCharsets.UTF_8);
+        } catch (IllegalArgumentException exception) {
+            return null;
+        }
+
+        String loweredName = fileName.toLowerCase(Locale.ROOT);
+        boolean supportedExtension = SUPPORTED_VIDEO_EXTENSIONS.stream().anyMatch(loweredName::endsWith);
+        if (!supportedExtension) {
+            return null;
+        }
+
+        if (fileName.contains("..") || fileName.contains("/") || fileName.contains("\\")) {
+            return null;
+        }
+
+        return fileName;
+    }
+
 }
