@@ -46,7 +46,11 @@ public class EnrollmentController {
         return ResponseEntity.ok(enrollmentService.findByCourseId(courseId));
     }
 
-
+    @GetMapping("/user/{userId}/course/{courseId}")
+    public ResponseEntity<Enrollment> getEnrollmentByUserAndCourse(@PathVariable Integer userId, @PathVariable Integer courseId) {
+        Enrollment enrollment = enrollmentService.findByUserIdAndCourseId(userId, courseId);
+        return enrollment != null ? ResponseEntity.ok(enrollment) : ResponseEntity.notFound().build();
+    }
 
     @PostMapping
     public ResponseEntity<Map<String, Object>> createEnrollment() {

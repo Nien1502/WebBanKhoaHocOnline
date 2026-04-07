@@ -25,7 +25,16 @@ public class CourseController {
         return ResponseEntity.ok(courseService.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Course> getCourseById(@PathVariable Integer id) {
+        Course course = courseService.findById(id);
+        return course != null ? ResponseEntity.ok(course) : ResponseEntity.notFound().build();
+    }
 
+    @GetMapping("/category/{categoryId}")
+    public ResponseEntity<List<Course>> getCoursesByCategory(@PathVariable Integer categoryId) {
+        return ResponseEntity.ok(courseService.findByCategoryId(categoryId));
+    }
 
     @PostMapping
     public ResponseEntity<Course> createCourse(@RequestBody Course course) {
