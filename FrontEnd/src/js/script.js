@@ -5,6 +5,45 @@ document.addEventListener("DOMContentLoaded", function () {
         return API_BASE + (path.startsWith('/') ? path : '/' + path);
     };
 
+<<<<<<< HEAD
+=======
+    function getAuthHeader() {
+        const token = localStorage.getItem('authToken') || '';
+        const tokenType = localStorage.getItem('authTokenType') || 'Bearer';
+        const cachedHeader = localStorage.getItem('authHeader') || '';
+
+        if (cachedHeader && cachedHeader.trim()) {
+            return cachedHeader.trim();
+        }
+
+        if (token && token.trim()) {
+            return (tokenType + ' ' + token).trim();
+        }
+
+        return '';
+    }
+
+    function withAuthHeaders(extraHeaders) {
+        const headers = Object.assign({}, extraHeaders || {});
+        const authHeader = getAuthHeader();
+        if (authHeader) {
+            headers.Authorization = authHeader;
+        }
+        return headers;
+    }
+
+    function isAuthExpired() {
+        const expiresAt = Number(localStorage.getItem('authTokenExpiresAt') || 0);
+        return expiresAt > 0 && Date.now() >= expiresAt;
+    }
+
+    function clearAuthSession() {
+        ['authToken', 'authTokenType', 'authTokenExpiresAt', 'authHeader', 'loggedInUser'].forEach(function (key) {
+            localStorage.removeItem(key);
+        });
+    }
+
+>>>>>>> FinalUp
     function normalizeLocalDateTime(value) {
         if (!value) {
             return null;
@@ -292,6 +331,124 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
+<<<<<<< HEAD
+=======
+    const cachedUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    const userInfoEl = document.getElementById('userInfo');
+    const searchInput = document.getElementById('menu-search-input');
+    const clearBtn = document.querySelector('.clear-search');
+    const openCourseLink = document.getElementById('open-course-link');
+
+    if (cachedUser && userInfoEl) {
+        userInfoEl.textContent = cachedUser.username;
+    }
+
+    if (searchInput && clearBtn) {
+        clearBtn.addEventListener('click', function () {
+            searchInput.value = '';
+            searchInput.focus();
+        });
+    }
+
+    if (openCourseLink) {
+        openCourseLink.addEventListener('click', async function (event) {
+            event.preventDefault();
+
+            const currentUser = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (!currentUser || !currentUser.id) {
+                alert('Vui lòng đăng nhập để vào khóa học.');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            if (isAuthExpired()) {
+                clearAuthSession();
+                alert('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            if (!getAuthHeader()) {
+                alert('Không tìm thấy phiên đăng nhập hợp lệ. Vui lòng đăng nhập lại.');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            try {
+                const ordersResponse = await fetch(apiUrl('/api/orders/user/' + encodeURIComponent(currentUser.id)), {
+                    headers: withAuthHeaders({
+                        'Accept': 'application/json'
+                    })
+                });
+
+                if (!ordersResponse.ok) {
+                    const errorPayload = await ordersResponse.json().catch(function () {
+                        return null;
+                    });
+                    const message = errorPayload && errorPayload.message
+                        ? errorPayload.message
+                        : 'Không tải được danh sách đơn hàng.';
+                    throw new Error(message);
+                }
+
+                const orders = await ordersResponse.json();
+                const successOrders = (orders || []).filter(function (order) {
+                    const status = String(order?.status ?? order?.Status ?? '').toUpperCase();
+                    return status === 'SUCCESS';
+                });
+
+                for (const order of successOrders) {
+                    const orderId = order?.id ?? order?.OrderID;
+                    if (orderId == null) {
+                        continue;
+                    }
+
+                    const detailsResponse = await fetch(apiUrl('/api/order-details/order/' + encodeURIComponent(orderId)), {
+                        headers: withAuthHeaders({
+                            'Accept': 'application/json'
+                        })
+                    });
+                    if (!detailsResponse.ok) {
+                        continue;
+                    }
+
+                    const details = await detailsResponse.json();
+                    const firstCourseId = (details || []).map(function (detail) {
+                        return detail?.course?.id ?? detail?.CourseID ?? detail?.courseId;
+                    }).find(function (value) {
+                        return Number.isInteger(Number(value));
+                    });
+
+                    if (firstCourseId != null) {
+                        window.location.href = 'course.html?id=' + Number(firstCourseId);
+                        return;
+                    }
+                }
+
+                alert('Bạn chưa có khóa học đã kích hoạt. Hãy mua khóa học trước nhé.');
+                window.location.href = 'cart.html';
+            } catch (error) {
+                console.error('Lỗi khi mở khóa học:', error);
+                const message = String(error && error.message ? error.message : '');
+
+                if (/token|authorization|đăng nhập|hết hạn/i.test(message)) {
+                    clearAuthSession();
+                    alert('Phiên đăng nhập không hợp lệ hoặc đã hết hạn. Vui lòng đăng nhập lại.');
+                    window.location.href = 'login.html';
+                    return;
+                }
+
+                if (/quyền|forbidden/i.test(message)) {
+                    alert('Bạn không có quyền truy cập khóa học này.');
+                    return;
+                }
+
+                alert('Không thể mở khóa học lúc này. Vui lòng thử lại sau.');
+            }
+        });
+    }
+
+>>>>>>> FinalUp
     const categoryListEl = document.getElementById('menu-category-list');
     const categoryTrackEl = document.getElementById('menu-course-strip-track');
     const stripRootEl = document.querySelector('.menu-course-strip');
